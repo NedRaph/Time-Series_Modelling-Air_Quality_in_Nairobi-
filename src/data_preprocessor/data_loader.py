@@ -50,7 +50,9 @@ class DataLoader():
             df.index = pd.to_datetime(df.index)
         
             # Convert to local timezone
-            df.index=df.index.tz_localize("UTC").tz_convert("Africa/Nairobi")
+            if df.index.tz is None:
+                df.index = df.index.tz_localize("UTC")
+                df.index = df.index.tz_convert("Africa/Nairobi")
 
             # Resample readings to hourly windows and forwad fill null values
             df=df["P2"].resample("1h").mean().ffill().to_frame()

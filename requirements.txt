@@ -6,3 +6,4 @@ pytz
 scikit-learn
 statsmodels
 scipy
+streamlit

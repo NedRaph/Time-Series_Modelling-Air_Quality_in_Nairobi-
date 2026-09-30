@@ -3,7 +3,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error
 from src.logger import logger
 
-class Modeler(self, df):
+class Modeler():
     def __init__(self, df):
         self.df=df
 
